@@ -32,15 +32,14 @@ def entropy(attribute, df, class_name):
     return sum(count_matrix)
 
 def get_best_attribute(filename, df):
-    # df = pd.read_csv(filename)
     columns_name = list(df)
-    menor = (None ,sys.maxsize)
+    best = (None ,sys.maxsize)
     for title in df:
         if title != columns_name[0] and title!=columns_name[-1]:
             aux = (title, entropy(title, df, columns_name[-1]))
-            if menor[1] > aux[1]:
-                menor = aux
-    if menor[0] is None:
+            if best[1] > aux[1]:
+                best = aux
+    if best[0] is None:
         print("Error")
         return
-    return menor
+    return best
