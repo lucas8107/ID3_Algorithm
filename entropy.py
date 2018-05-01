@@ -9,9 +9,7 @@ def entropy(attribute, df, class_name):
     attrib = list(set(df[attribute]))
     clazz = list(set(df[class_name]))
 
-    count_matrix = []
-    for i in range(len(attrib)):
-        count_matrix.append(np.zeros(len(clazz)))
+    count_matrix = [np.zeros(len(clazz)) for i in range(len(attrib))]
 
     attrib = dict(zip(attrib, (range(len(attrib)))))
     clazz = dict(zip(clazz, (range(len(clazz)))))
