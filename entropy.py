@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import math
 import sys
 
 def entropy(attribute, df, class_name):
@@ -24,7 +23,7 @@ def entropy(attribute, df, class_name):
         count_matrix[i] = count_matrix[i]/sum(count_matrix[i])
         for j in range(len(count_matrix[i])):
             if count_matrix[i][j] != 0:
-                count_matrix[i][j] = -1*count_matrix[i][j]*math.log(count_matrix[i][j], 2)
+                count_matrix[i][j] = -1*count_matrix[i][j]*np.log2(count_matrix[i][j])
         count_matrix[i] = sum(count_matrix[i])*(total/aux)
 
     return sum(count_matrix)
