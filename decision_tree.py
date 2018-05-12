@@ -11,18 +11,20 @@ def decision_tree(filename):
     df = pd.read_csv(filename, index_col=0)
     normalize_data(df)
     attrib_best = get_best_attribute(df)[0]
-    get_common()
+    #get_common()
     ID3(df, list(df)[-1], attrib_best, 0)
 
-def get_common():
+def get_common(val, attribs):
     global common
     global count
+
     class_name = list(df)[-1]
-    common = set(df[class_name]).pop()
+    df_aux = df[df[attribs] == val]
+    common = set(df_aux[class_name]).pop()
     count = 0
-    for val in set(df[class_name]):
-        if count < df[df[class_name] == val][class_name].count():
-            count = df[df[class_name] == val][class_name].count()
+    for val in set(df_aux[class_name]):
+        if count < df_aux[df_aux[class_name] == val][class_name].count():
+            count = df_aux[df_aux[class_name] == val][class_name].count()
             common = val
 
 def ID3(dataframe, target_attrib, attribs, cnt):
@@ -34,6 +36,7 @@ def ID3(dataframe, target_attrib, attribs, cnt):
         if len(a) == 1:
             print("    "*(cnt + 1) + "{}: {} ({})".format(val, a.pop(), df_aux[attribs].count()))
         elif len(a) == 0:
+            get_common(val, attribs)
             print("    "*(cnt + 1) + "{}: {} ({})".format(val, common, count))
         elif len(dataframe) > 1:
             print("    "*(cnt + 1) + "{}: ".format(val))   
