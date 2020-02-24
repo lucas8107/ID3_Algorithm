@@ -1,3 +1,4 @@
+#!./env/bin/python3
 from entropy import get_best_attribute, normalize_data
 import pandas as pd
 import sys
@@ -54,7 +55,8 @@ file_ = None
 
 if __name__ == '__main__':
     name = sys.argv[1]
-    file_name = name.split('.')[0]
-    file_ = open('tree_{}.txt'.format(file_name), 'w')
+    aux = name.split('/')[-1]
+    file_name = aux.split('.')[0]
+    file_ = open('output/tree_{}.txt'.format(file_name), 'w')
     decision_tree(name)
     file_.close()

@@ -1,20 +1,21 @@
-# assignment_4
-Code for the 4th AI assignment
+# ID3 Algorithm (Python3)
 
-Para instalar a biblioteca necessária (pandas) basta executar:
+[ID3](https://en.wikipedia.org/wiki/ID3_algorithm) algorithm implemented with python3 as part of the assignment schedule of IA course of Computer Science (FCUP).
 
-- sudo python3 setup.py install
+## Getting started
 
-Para executar o programa:
+### Prerequisites
 
-- python3 decision_tree.py (nome_do_arquivo_csv.csv)
+- pandas 1.0.1 (you might use a virtual env)
 
-A árvore gerada aparecerá no shell e em um ficheiro com o nome
-"tree_nome_do_arquivo_csv.txt"
+## Running
 
+```bash
+./decision_tree.py csv_file
+```
 
-| Aluno           | Numero UP     |
-| --------------- | ------------- |
-| Lucas de Paula  | 201608440     |
-| Lucas Parada    | 201601875     |
-| Marcelo Silva   | 201604395     |
+The generated tree file will be in the output folder
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
