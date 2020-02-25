@@ -2,6 +2,7 @@
 from entropy import get_best_attribute, normalize_data
 import pandas as pd
 import sys
+import os
 
 class Node:
     def __init__(self, name, val_set):
@@ -54,6 +55,8 @@ def ID3(dataframe, target_attrib, attribs, cnt):
 file_ = None
 
 if __name__ == '__main__':
+    if not os.path.exists('output/'):
+        os.mkdir('output')
     name = sys.argv[1]
     aux = name.split('/')[-1]
     file_name = aux.split('.')[0]
